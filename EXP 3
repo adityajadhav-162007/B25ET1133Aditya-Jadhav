@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+// Function to read array elements
+void read(int arr[], int n)
+{
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+}
+
+// Function to display array elements
+void display(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// Function to swap two numbers using call by reference
+void swap(int &a, int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+// Function to sort the array in ascending order
+void sort(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                swap(arr[i], arr[j]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    int arr[n];
+
+    read(arr, n);
+
+    cout << "\nArray before sorting: ";
+    display(arr, n);
+
+    sort(arr, n);
+
+    cout << "Array after sorting: ";
+    display(arr, n);
+
+    return 0;
+}
