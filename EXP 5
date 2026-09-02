@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+// Perimeter of a square
+int perimeter(int side) {
+    return 4 * side;
+}
+
+// Perimeter of a rectangle
+int perimeter(int length, int breadth) {
+    return 2 * (length + breadth);
+}
+
+int main() {
+    int side, length, breadth;
+
+    cout << "Enter side of square: ";
+    cin >> side;
+    cout << "Perimeter of square = " << perimeter(side) << endl;
+
+    cout << "Enter length and breadth of rectangle: ";
+    cin >> length >> breadth;
+    cout << "Perimeter of rectangle = " << perimeter(length, breadth) << endl;
+
+    return 0;
+}
