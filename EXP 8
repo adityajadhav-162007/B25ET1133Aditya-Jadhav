@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class 1
+class Employee
+{
+protected:
+    int empId;
+    string name;
+    float salary;
+
+public:
+    void getEmployee()
+    {
+        cout << "Enter Employee ID: ";
+        cin >> empId;
+
+        cin.ignore();  // Clear newline from input buffer
+
+        cout << "Enter Employee Name: ";
+        getline(cin, name);
+
+        cout << "Enter Basic Salary: ";
+        cin >> salary;
+    }
+};
+
+// Base class 2
+class WorkingHours
+{
+protected:
+    int hours;
+
+public:
+    void getHours()
+    {
+        cout << "Enter Working Hours: ";
+        cin >> hours;
+    }
+};
+
+// Derived class
+class Overtime : public Employee, public WorkingHours
+{
+    float overtimePayment;
+
+public:
+    void calculate()
+    {
+        if (hours > 8)
+            overtimePayment = (hours - 8) * 100;
+        else
+            overtimePayment = 0;
+    }
+
+    void display()
+    {
+        cout << "\n--- Employee Details ---" << endl;
+        cout << "Employee ID: " << empId << endl;
+        cout << "Employee Name: " << name << endl;
+        cout << "Basic Salary: " << salary << endl;
+        cout << "Working Hours: " << hours << endl;
+        cout << "Overtime Payment: Rs. " << overtimePayment << endl;
+    }
+};
+
+int main()
+{
+    Overtime obj;
+
+    obj.getEmployee();
+    obj.getHours();
+    obj.calculate();
+    obj.display();
+
+    return 0;
+}
