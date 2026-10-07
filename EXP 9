@@ -1,0 +1,59 @@
+#include <iostream>              // Used for input and output
+using namespace std;             // Allows us to use cout and endl directly
+
+
+// Base class
+class Media
+{
+public:
+
+    // Virtual function
+    virtual void play()
+    {
+        cout << "Playing media" << endl;    // Displays a general message
+    }
+};
+
+
+// Derived class Audio
+class Audio : public Media
+{
+public:
+
+    // Function overriding the base class function
+    void play()
+    {
+        cout << "Playing audio" << endl;     // Displays audio message
+    }
+};
+
+
+// Derived class Video
+class Video : public Media
+{
+public:
+
+    // Function overriding the base class function
+    void play()
+    {
+        cout << "Playing video" << endl;     // Displays video message
+    }
+};
+
+
+// Main function
+int main()
+{
+    Media *ptr;                  // Create a pointer of base class Media
+
+    Audio a;                     // Create an object of Audio class
+    Video v;                     // Create an object of Video class
+
+    ptr = &a;                    // Base class pointer points to Audio object
+    ptr->play();                 // Calls Audio's play() function
+
+    ptr = &v;                    // Base class pointer points to Video object
+    ptr->play();                 // Calls Video's play() function
+
+    return 0;                    // End the program successfully
+}
