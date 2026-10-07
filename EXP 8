@@ -1,78 +1,114 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <iostream>          // Used for input and output
+#include <string>            // Used to use string data type
+using namespace std;          // Avoids writing std:: before cout, cin and string
+
 
 // Base class 1
 class Employee
 {
 protected:
-    int empId;
-    string name;
-    float salary;
+    int empId;               // Stores employee ID
+    string name;             // Stores employee name
+    float salary;            // Stores basic salary
 
 public:
+
+    // Function to accept employee information
     void getEmployee()
     {
-        cout << "Enter Employee ID: ";
-        cin >> empId;
+        cout << "Enter Employee ID: ";    // Ask user to enter employee ID
+        cin >> empId;                    // Take employee ID as input
 
-        cin.ignore();  // Clear newline from input buffer
+        cin.ignore();                    // Clear the Enter key from input buffer
 
-        cout << "Enter Employee Name: ";
-        getline(cin, name);
+        cout << "Enter Employee Name: "; // Ask user to enter employee name
+        getline(cin, name);              // Accept complete name including spaces
 
-        cout << "Enter Basic Salary: ";
-        cin >> salary;
+        cout << "Enter Basic Salary: ";  // Ask user to enter salary
+        cin >> salary;                   // Take salary as input
     }
 };
+
 
 // Base class 2
 class WorkingHours
 {
 protected:
-    int hours;
+    int hours;                         // Stores number of working hours
 
 public:
+
+    // Function to accept working hours
     void getHours()
     {
-        cout << "Enter Working Hours: ";
-        cin >> hours;
+        cout << "Enter Working Hours: "; // Ask user to enter working hours
+        cin >> hours;                    // Take working hours as input
     }
 };
 
+
 // Derived class
+// Overtime inherits Employee and WorkingHours
 class Overtime : public Employee, public WorkingHours
 {
-    float overtimePayment;
+    float overtimePayment;              // Stores overtime payment
 
 public:
+
+    // Function to calculate overtime payment
     void calculate()
     {
+        // Check if employee has worked more than 8 hours
         if (hours > 8)
+            
+            // Calculate overtime payment
             overtimePayment = (hours - 8) * 100;
+
         else
+            
+            // No overtime if working hours are 8 or less
             overtimePayment = 0;
     }
 
+
+    // Function to display employee information
     void display()
     {
         cout << "\n--- Employee Details ---" << endl;
+        // Displays employee details heading
+
         cout << "Employee ID: " << empId << endl;
+        // Displays employee ID
+
         cout << "Employee Name: " << name << endl;
+        // Displays employee name
+
         cout << "Basic Salary: " << salary << endl;
+        // Displays basic salary
+
         cout << "Working Hours: " << hours << endl;
+        // Displays working hours
+
         cout << "Overtime Payment: Rs. " << overtimePayment << endl;
+        // Displays calculated overtime payment
     }
 };
 
+
+// Main function
 int main()
 {
-    Overtime obj;
+    Overtime obj;                    // Create object of Overtime class
 
-    obj.getEmployee();
-    obj.getHours();
-    obj.calculate();
-    obj.display();
+    obj.getEmployee();               // Call function to accept employee details
 
+    obj.getHours();                  // Call function to accept working hours
+
+    obj.calculate();                 // Calculate overtime payment
+
+    obj.display();                   // Display all employee details
+
+    return 0;                        // End the program successfully
+}
     return 0;
 }
