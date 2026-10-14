@@ -1,41 +1,43 @@
-#include <iostream>
-using namespace std;
 
-class Complex
+#include <iostream> // Includes the input and output library
+using namespace std; // Allows us to use cout and cin without std::
+
+class Complex // Defines a class named Complex
 {
-    int real, imag;
+    int real, imag; // Declares variables for real and imaginary parts
 
-public:
-    Complex(int r = 0, int i = 0)
+public: // Makes the following members accessible outside the class
+    Complex(int r = 0, int i = 0) // Defines a constructor with default values
     {
-        real = r;
-        imag = i;
-    }
+        real = r; // Initializes the real part
+        imag = i; // Initializes the imaginary part
+    } // Ends the constructor
 
     // Unary ++ operator overloading
-    void operator++()
+    void operator++() // Overloads the unary increment operator
     {
-        ++real;
-        ++imag;
-    }
+        ++real; // Increases the real part by one
+        ++imag; // Increases the imaginary part by one
+    } // Ends the operator overloading function
 
-    void display()
+    void display() // Defines a function to display the complex number
     {
-        cout << real << " + " << imag << "i" << endl;
-    }
-};
+        cout << real << " + " << imag << "i" << endl; // Prints the complex number
+    } // Ends the display function
+}; // Ends the Complex class
 
-int main()
+int main() // Main function where program execution begins
 {
-    Complex c(5, 3);
+    Complex c(5, 3); // Creates an object with real part 5 and imaginary part 3
 
-    cout << "Before increment: ";
-    c.display();
+    cout << "Before increment: "; // Displays a message before incrementing
+    c.display(); // Displays the original complex number
 
-    ++c;
+    ++c; // Calls the overloaded ++ operator to increment both parts
 
-    cout << "After increment: ";
-    c.display();
+    cout << "After increment: "; // Displays a message after incrementing
+    c.display(); // Displays the updated complex number
 
-    return 0;
-}
+    return 0; // Ends the program successfully
+} // Ends the main function
+
