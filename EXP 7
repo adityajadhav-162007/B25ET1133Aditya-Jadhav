@@ -1,44 +1,47 @@
-#include <iostream>
-#include <cstring>
-using namespace std;
 
-class String
+#include <iostream> // Includes the input and output library
+#include <cstring> // Includes functions for handling strings
+using namespace std; // Allows us to use cin and cout without std::
+
+class String // Defines a class named String
 {
-    char str[100];
+    char str[100]; // Declares a character array to store a string of up to 99 characters plus the null character
 
-public:
+public: // Makes the following members accessible outside the class
+
     // Constructor
-    String()
+    String() // Defines a default constructor that runs when an object is created
     {
-        str[0] = '\0';
-    }
+        str[0] = '\0'; // Initializes the string as empty
+    } // Ends the constructor
 
     // Accept string
-    void Accept()
+    void Accept() // Defines a function to accept a string from the user
     {
-        cout << "Enter a string: ";
-        cin.getline(str, 100);
-    }
+        cout << "Enter a string: "; // Asks the user to enter a string
+        cin.getline(str, 100); // Reads the complete line, including spaces, into the character array
+    } // Ends the Accept function
 
     // Display string
-    void Display()
+    void Display() // Defines a function to display the stored string
     {
-        cout << "String is: " << str << endl;
-    }
+        cout << "String is: " << str << endl; // Prints the entered string
+    } // Ends the Display function
 
     // Destructor
-    ~String()
+    ~String() // Defines a destructor that runs when the object is destroyed
     {
-        cout << "Destructor called." << endl;
-    }
-};
+        cout << "Destructor called." << endl; // Displays a message when the destructor executes
+    } // Ends the destructor
+}; // Ends the String class
 
-int main()
+int main() // Main function where program execution begins
 {
-    String s;
+    String s; // Creates an object s of the String class and calls the constructor
 
-    s.Accept();
-    s.Display();
+    s.Accept(); // Calls the Accept function to read a string
+    s.Display(); // Calls the Display function to print the string
 
-    return 0;
-}
+    return 0; // Ends the program and destroys the local object s
+} // Ends the main function
+
