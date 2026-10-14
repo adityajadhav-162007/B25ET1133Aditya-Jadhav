@@ -1,26 +1,27 @@
-#include <iostream>
-using namespace std;
 
-// Perimeter of a square
-int perimeter(int side) {
-    return 4 * side;
-}
+#include <iostream> // Includes the input and output library
+using namespace std; // Allows us to use cin and cout without writing std::
+
+ // Perimeter of a square
+int perimeter(int side) { // Defines a function to calculate the perimeter of a square
+    return 4 * side; // Returns four times the side of the square
+} // Ends the square perimeter function
 
 // Perimeter of a rectangle
-int perimeter(int length, int breadth) {
-    return 2 * (length + breadth);
-}
+int perimeter(int length, int breadth) { // Defines another perimeter function with two parameters
+    return 2 * (length + breadth); // Returns twice the sum of length and breadth
+} // Ends the rectangle perimeter function
 
-int main() {
-    int side, length, breadth;
+int main() { // Main function where program execution begins
+    int side, length, breadth; // Declares integer variables to store dimensions
 
-    cout << "Enter side of square: ";
-    cin >> side;
-    cout << "Perimeter of square = " << perimeter(side) << endl;
+    cout << "Enter side of square: "; // Asks the user to enter the side of the square
+    cin >> side; // Accepts the side value from the user
+    cout << "Perimeter of square = " << perimeter(side) << endl; // Calls the one-parameter function and displays the perimeter
 
-    cout << "Enter length and breadth of rectangle: ";
-    cin >> length >> breadth;
-    cout << "Perimeter of rectangle = " << perimeter(length, breadth) << endl;
+    cout << "Enter length and breadth of rectangle: "; // Asks the user to enter rectangle dimensions
+    cin >> length >> breadth; // Accepts the length and breadth from the user
+    cout << "Perimeter of rectangle = " << perimeter(length, breadth) << endl; // Calls the two-parameter function and displays the perimeter
 
-    return 0;
-}
+    return 0; // Ends the program successfully
+} // Ends the main function
