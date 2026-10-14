@@ -1,68 +1,68 @@
-#include <iostream>
-using namespace std;
+#include <iostream> // Includes the input-output library
+using namespace std; // Allows using cout and cin without std::
 
 // Function to read array elements
-void read(int arr[], int n)
+void read(int arr[], int n) // Accepts an array and its size
 {
-    cout << "Enter " << n << " elements: ";
-    for (int i = 0; i < n; i++)
+    cout << "Enter " << n << " elements: "; // Asks the user to enter array elements
+    for (int i = 0; i < n; i++) // Loops through each array element
     {
-        cin >> arr[i];
+        cin >> arr[i]; // Reads an element and stores it in the array
     }
 }
 
 // Function to display array elements
-void display(int arr[], int n)
+void display(int arr[], int n) // Accepts an array and its size
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) // Loops through all array elements
     {
-        cout << arr[i] << " ";
+        cout << arr[i] << " "; // Prints the current array element
     }
-    cout << endl;
+    cout << endl; // Moves the cursor to the next line
 }
 
 // Function to swap two numbers using call by reference
-void swap(int &a, int &b)
+void swap(int &a, int &b) // Receives references to two integer variables
 {
-    int temp;
-    temp = a;
-    a = b;
-    b = temp;
+    int temp; // Declares a temporary variable
+    temp = a; // Stores the value of a in temp
+    a = b; // Assigns the value of b to a
+    b = temp; // Assigns the original value of a to b
 }
 
 // Function to sort the array in ascending order
-void sort(int arr[], int n)
+void sort(int arr[], int n) // Accepts an array and its size
 {
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n - 1; i++) // Selects each element one by one
     {
-        for (int j = i + 1; j < n; j++)
+        for (int j = i + 1; j < n; j++) // Compares it with the remaining elements
         {
-            if (arr[i] > arr[j])
+            if (arr[i] > arr[j]) // Checks whether the current element is greater
             {
-                swap(arr[i], arr[j]);
+                swap(arr[i], arr[j]); // Swaps the elements if they are out of order
             }
         }
     }
 }
 
-int main()
+int main() // Main function starts
 {
-    int n;
+    int n; // Declares a variable to store the array size
 
-    cout << "Enter the size of the array: ";
-    cin >> n;
+    cout << "Enter the size of the array: "; // Asks the user for the array size
+    cin >> n; // Reads the array size
 
-    int arr[n];
+    int arr[n]; // Declares an array of n integers (variable-length arrays are not standard C++)
 
-    read(arr, n);
+    read(arr, n); // Calls the read function to input array elements
 
-    cout << "\nArray before sorting: ";
-    display(arr, n);
+    cout << "\nArray before sorting: "; // Displays a message before printing the array
+    display(arr, n); // Displays the original array
 
-    sort(arr, n);
+    sort(arr, n); // Calls the sort function to arrange elements in ascending order
 
-    cout << "Array after sorting: ";
-    display(arr, n);
+    cout << "Array after sorting: "; // Displays a message before printing the sorted array
+    display(arr, n); // Displays the sorted array
 
-    return 0;
+    return 0; // Ends the program successfully
 }
