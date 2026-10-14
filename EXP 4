@@ -1,38 +1,40 @@
-#include <iostream>
-using namespace std;
 
-class Complex {
-    float real, imag;
+#include <iostream> // Includes the input and output library
+using namespace std; // Allows us to use cout and cin without std::
 
-public:
-    Complex(float r, float i) {
-        real = r;
-        imag = i;
-    }
+class Complex { // Defines a class named Complex
+    float real, imag; // Declares variables to store real and imaginary parts
 
-    Complex operator*(float scalar) {
-        return Complex(real * scalar, imag * scalar);
-    }
+public: // Makes the following members accessible outside the class
+    Complex(float r, float i) { // Parameterized constructor to initialize values
+        real = r; // Stores the real part in the real variable
+        imag = i; // Stores the imaginary part in the imag variable
+    } // Ends the constructor
 
-    void display() {
-        cout << real << " + " << imag << "i" << endl;
-    }
-};
+    Complex operator*(float scalar) { // Overloads the * operator for scalar multiplication
+        return Complex(real * scalar, imag * scalar); // Multiplies both parts by the scalar and returns a new object
+    } // Ends the overloaded operator function
 
-int main() {
-    float real, imag, scalar;
+    void display() { // Defines a function to display the complex number
+        cout << real << " + " << imag << "i" << endl; // Prints the complex number
+    } // Ends the display function
+}; // Ends the Complex class
 
-    cout << "Enter real and imaginary parts of complex number: ";
-    cin >> real >> imag;
+int main() { // Main function where program execution begins
+    float real, imag, scalar; // Declares variables for real part, imaginary part, and scalar
 
-    cout << "Enter scalar value: ";
-    cin >> scalar;
+    cout << "Enter real and imaginary parts of complex number: "; // Asks the user to enter the complex number
+    cin >> real >> imag; // Accepts the real and imaginary parts from the user
 
-    Complex c(real, imag);
-    Complex result = c * scalar;
+    cout << "Enter scalar value: "; // Asks the user to enter the scalar value
+    cin >> scalar; // Accepts the scalar value from the user
 
-    cout << "Result: ";
-    result.display();
+    Complex c(real, imag); // Creates an object c using the entered values
+    Complex result = c * scalar; // Multiplies the complex number by the scalar using operator overloading
 
-    return 0;
-}
+    cout << "Result: "; // Prints the result label
+    result.display(); // Calls the display function to print the result
+
+    return 0; // Ends the program successfully
+} // Ends the main function
+
