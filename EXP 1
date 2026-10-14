@@ -1,29 +1,30 @@
-#include <iostream>
+#include <iostream>  // Includes the input-output library
 
-using namespace std;
+using namespace std; // Allows using cout and cin without std::
 
-int main() {
-    int rows;
-    cout << "Enter the number of rows: ";
-    cin >> rows;
+int main() {         // Main function starts
 
-    for (int i = 0; i < rows; i++) {
-       
-        for (int a = 1; a<= rows - i; a++) {
-            cout << " ";
+    int rows;        // Declares a variable to store the number of rows
+
+    cout << "Enter the number of rows: "; // Asks the user to enter the number of rows
+    cin >> rows;     // Reads the number of rows entered by the user
+
+    for (int i = 0; i < rows; i++) { // Outer loop controls the number of rows
+
+        for (int a = 1; a <= rows - i; a++) { // Loop prints spaces before the numbers
+            cout << " "; // Prints one space
         }
 
-       
-        int val = 1; 
-        for (int j = 0; j <= i; j++) {
-            cout << val << " ";
-            
-            
-            val = val * (i - j) / (j + 1);
+        int val = 1; // Initializes the first value of each row to 1
+
+        for (int j = 0; j <= i; j++) { // Loop prints the numbers in each row
+            cout << val << " "; // Displays the current number followed by a space
+
+            val = val * (i - j) / (j + 1); // Calculates the next number using the binomial coefficient formula
         }
-        
-        cout << "\n";
+
+        cout << "\n"; // Moves the cursor to the next line after each row
     }
 
-    return 0;
+    return 0; // Ends the program successfully
 }
