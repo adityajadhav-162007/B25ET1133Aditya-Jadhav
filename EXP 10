@@ -1,0 +1,17 @@
+#include <iostream>  // Includes the input-output stream library
+using namespace std; // Allows using standard library names without std::
+
+int main()               // Main function starts
+{
+    try                   // Starts the try block
+    {
+        char ch = 'A';    // Declares a character variable
+        throw ch;         // Throws the character as an exception
+    }
+    catch (char c)        // Catches the character-type exception
+    {
+        cout << "Exception caught: " << c << endl; // Displays the exception
+    }
+
+    return 0;             // Ends the program successfully
+}
