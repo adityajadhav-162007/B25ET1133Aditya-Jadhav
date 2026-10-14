@@ -1,0 +1,36 @@
+
+#include <iostream> // Includes the input and output library
+#include <fstream> // Includes file handling classes
+using namespace std; // Allows us to use cout without std::
+
+int main() // Main function where execution begins
+{
+    ifstream source("source.txt"); // Opens the source file for reading
+    ofstream destination("destination.txt"); // Opens the destination file for writing
+
+    if (!source) // Checks whether the source file opened successfully
+    {
+        cout << "Error opening source file." << endl; // Displays an error message
+        return 1; // Ends the program with an error status
+    } // Ends the source file check
+
+    if (!destination) // Checks whether the destination file opened successfully
+    {
+        cout << "Error opening destination file." << endl; // Displays an error message
+        return 1; // Ends the program with an error status
+    } // Ends the destination file check
+
+    char ch; // Declares a character variable to read one character at a time
+
+    while (source.get(ch)) // Reads characters until the end of the source file
+    {
+        destination.put(ch); // Writes each character into the destination file
+    } // Ends the while loop
+
+    cout << "File copied successfully." << endl; // Displays a success message
+
+    source.close(); // Closes the source file
+    destination.close(); // Closes the destination file
+
+    return 0; // Ends the program successfully
+} // Ends the main function
