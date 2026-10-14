@@ -1,0 +1,34 @@
+
+#include <iostream> // Includes the input and output library
+using namespace std; // Allows us to use cout without std::
+
+namespace First // Defines a namespace named First
+{
+    int value = 10; // Declares an integer variable inside First
+
+    void display() // Defines a function inside First
+    {
+        cout << "Value from First namespace: " << value << endl; // Prints the value from First
+    } // Ends the display function
+} // Ends the First namespace
+
+namespace Second // Defines another namespace named Second
+{
+    int value = 20; // Declares an integer variable inside Second
+
+    void display() // Defines a function inside Second
+    {
+        cout << "Value from Second namespace: " << value << endl; // Prints the value from Second
+    } // Ends the display function
+} // Ends the Second namespace
+
+int main() // Main function where execution begins
+{
+    First::display(); // Calls the display function from First
+    Second::display(); // Calls the display function from Second
+
+    cout << "First value: " << First::value << endl; // Accesses the value from First
+    cout << "Second value: " << Second::value << endl; // Accesses the value from Second
+
+    return 0; // Ends the program successfully
+} // Ends the main function
