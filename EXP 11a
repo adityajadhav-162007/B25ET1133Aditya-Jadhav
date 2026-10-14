@@ -1,0 +1,39 @@
+
+#include <iostream> // Includes the input and output library
+using namespace std; // Allows us to use cout without std::
+
+template <class T> // Defines a class template using a generic data type T
+class Sample // Declares a class named Sample
+{
+    T a, b; // Declares two variables of type T
+
+public: // Makes the following members accessible outside the class
+    Sample(T x, T y) // Defines a constructor to initialize the variables
+    {
+        a = x; // Assigns x to a
+        b = y; // Assigns y to b
+    } // Ends the constructor
+
+    void display() // Defines a function to display the values
+    {
+        cout << "Values are: " << a << " and " << b << endl; // Prints both values
+    } // Ends the display function
+}; // Ends the Sample class
+
+template <class T> // Defines a function template using a generic data type T
+T add(T x, T y) // Defines a function to add two values of type T
+{
+    return x + y; // Returns the sum of x and y
+} // Ends the add function
+
+int main() // Main function where execution begins
+{
+    Sample<int> s(10, 20); // Creates an object with integer values
+    s.display(); // Displays the integer values
+
+    cout << "Sum of integers: " << add<int>(5, 10) << endl; // Calls the function template for integers
+
+    cout << "Sum of decimals: " << add<float>(2.5f, 3.5f) << endl; // Calls the function template for float values
+
+    return 0; // Ends the program successfully
+} // Ends the main function
