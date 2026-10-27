@@ -1,0 +1,33 @@
+
+#include <iostream> // Includes the input-output library
+using namespace std; // Allows using cout without std::
+
+// First namespace
+namespace First
+{
+    int num = 10; // Declares an integer variable
+
+    void display() // Defines a display function
+    {
+        cout << "First Namespace: " << num << endl; // Displays the value
+    }
+}
+
+// Second namespace
+namespace Second
+{
+    int num = 20; // Declares another integer variable with the same name
+
+    void display() // Defines another display function
+    {
+        cout << "Second Namespace: " << num << endl; // Displays the value
+    }
+}
+
+int main() // Main function where program execution begins
+{
+    First::display(); // Calls the display function of First namespace
+    Second::display(); // Calls the display function of Second namespace
+
+    return 0; // Ends the program successfully
+}
